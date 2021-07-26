@@ -10,6 +10,7 @@ namespace Factory_Method
         }
         public abstract IHelloOS CreateObj();
     }
+
     class WinFactory : HelloFactory
     {
         public override IHelloOS CreateObj()
