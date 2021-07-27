@@ -53,7 +53,7 @@ namespace Abstract_Factory
                     return;
                 }
 
-                switch (RandomWrapper.random.Next(1, 2))
+                switch (RandomWrapper.random.Next(1, 3))
                 {
                     case 1:
                         dmg = enemy.MainAttack.Damage(player);
@@ -117,7 +117,7 @@ namespace Abstract_Factory
         }
         private void SetupEnemy()
         {
-            enemy = RandomWrapper.random.Next(1, 2) switch
+            enemy = RandomWrapper.random.Next(1, 3) switch
             {
                 1 => new Warrior("Aleshka Popovich"),
                 2 => new Mage("Robin Bobin"),
@@ -130,7 +130,6 @@ namespace Abstract_Factory
             PrintEnemyInfo();
             Thread.Sleep(3000);
             PrintHelp();
-            Thread.Sleep(3000);
             Console.WriteLine("Prepare for Battle!");
             Thread.Sleep(5000);
         }
