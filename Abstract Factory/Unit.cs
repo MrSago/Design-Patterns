@@ -26,7 +26,11 @@ namespace Abstract_Factory
         {
             return (hitpoints -= dmg) > 0 ? hitpoints : 0;
         }
-        public abstract string GetBattleRoar();
+        public string GetUnitType()
+        {
+            return this.GetType().Name;
+        }
+        public abstract string GetReplic();
     }
 
     class Warrior : Unit
@@ -34,7 +38,7 @@ namespace Abstract_Factory
         public Warrior(string _name, int _hp = 150) : base(new PhysicsAbilitesFactory(), _name, _hp)
         {
         }
-        public override string GetBattleRoar()
+        public override string GetReplic()
         {
             return "I'm strong Warrior! Zag-Zag!";
         }
@@ -44,7 +48,7 @@ namespace Abstract_Factory
         public Mage(string _name, int _hp = 100) : base(new MagicAbilitiesFactory(), _name, _hp)
         {
         }
-        public override string GetBattleRoar()
+        public override string GetReplic()
         {
             return "I'm cool mage!";
         }

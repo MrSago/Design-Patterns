@@ -1,6 +1,4 @@
 ﻿
-using System;
-
 namespace Abstract_Factory
 {
     interface IMainAttack
@@ -16,10 +14,9 @@ namespace Abstract_Factory
 
     class Sword : IMainAttack
     {
-        private readonly Random rand = new();
         public int Damage(Unit unit)
         {
-            int dmg = rand.Next(20, 30);
+            int dmg = RandomWrapper.random.Next(20, 30);
             unit.GotDamage(dmg);
             return dmg;
         }
@@ -31,10 +28,9 @@ namespace Abstract_Factory
 
     class Fireball : IMainAttack
     {
-        private readonly Random rand = new();
         public int Damage(Unit unit)
         {
-            int dmg = rand.Next(35, 50);
+            int dmg = RandomWrapper.random.Next(35, 50);
             unit.GotDamage(dmg);
             return dmg;
         }
@@ -45,10 +41,9 @@ namespace Abstract_Factory
     }
     class Shieldbash : ISecondAttack
     {
-        private readonly Random rand = new();
         public int Damage(Unit unit)
         {
-            int dmg = rand.Next(17, 22);
+            int dmg = RandomWrapper.random.Next(17, 22);
             unit.GotDamage(dmg);
             return dmg;
         }
@@ -59,10 +54,9 @@ namespace Abstract_Factory
     }
     class Frostball : ISecondAttack
     {
-        private readonly Random rand = new();
         public int Damage(Unit unit)
         {
-            int dmg = rand.Next(20, 28);
+            int dmg = RandomWrapper.random.Next(20, 28);
             unit.GotDamage(dmg);
             return dmg;
         }
