@@ -16,12 +16,10 @@ namespace Builder
         {
             product.Add("PartA");
         }
-
         public void BuildPartB()
         {
             product.Add("PartB");
         }
-
         public void BuildPartC()
         {
             product.Add("PartC");
