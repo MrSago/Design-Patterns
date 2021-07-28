@@ -35,9 +35,8 @@ namespace Abstract_Factory
 
     class Warrior : Unit
     {
-        public Warrior(string _name, int _hp = 150) : base(new PhysicsAbilitesFactory(), _name, _hp)
-        {
-        }
+        public Warrior(string _name, int _hp = 150) :
+            base(new PhysicsAbilitesFactory(), _name, _hp) {}
         public override string GetReplic()
         {
             return "I'm strong Warrior! Zag-Zag!";
@@ -45,9 +44,8 @@ namespace Abstract_Factory
     }
     class Mage : Unit
     {
-        public Mage(string _name, int _hp = 100) : base(new MagicAbilitiesFactory(), _name, _hp)
-        {
-        }
+        public Mage(string _name, int _hp = 100) :
+            base(new MagicAbilitiesFactory(), _name, _hp) {}
         public override string GetReplic()
         {
             return "I'm cool mage!";
