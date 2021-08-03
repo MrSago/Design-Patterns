@@ -1,36 +1,43 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace Prototype
 {
     class Rectangle : Shape
     {
-        public double Width, Height;
+        private readonly double Width, Height;
         public Rectangle(double _x, double _y, string _color, double _width, double _height) :
             base(_x, _y, _color)
         {
             Width = _width;
             Height = _height;
         }
-        public override Shape clone()
+        public override Shape Clone()
         {
             return (Rectangle)MemberwiseClone();
         }
+        public override string GetInfo()
+        {
+            return $"It's {GetType().Name}: Width={Width}, Heigth={Height}\n" +
+                   $"X={X}, Y={Y}, color={color}\n";
+        }
     }
+
     class Circle : Shape
     {
-        public double radius;
+        private readonly double Radius;
         public Circle(double _x, double _y, string _color, double _radius) :
             base(_x, _y, _color)
         {
-            radius = _radius;
+            Radius = _radius;
         }
-        public override Shape clone()
+        public override Shape Clone()
         {
             return (Circle)MemberwiseClone();
         }
+        public override string GetInfo()
+        {
+            return $"It's {GetType().Name}: Radius={Radius}\n" +
+                   $"X={X}, Y={Y}, color={color}\n";
+        }
     }
 }
+

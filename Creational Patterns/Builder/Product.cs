@@ -5,7 +5,7 @@ namespace Builder
 {
     class Product
     {
-        private readonly List<object> parts = new();
+        private readonly List<string> parts = new();
         public void Add(string part)
         {
             parts.Add(part);
@@ -13,9 +13,9 @@ namespace Builder
         public string GetParts()
         {
             string str = string.Empty;
-            foreach (var i in parts)
+            foreach (var it in parts)
             {
-                str += i + ", ";
+                str += it + ", ";
             }
             str = str.Remove(str.Length - 2);
             return $"Product parts: {str}\n";

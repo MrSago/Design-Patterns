@@ -22,7 +22,7 @@ namespace Abstract_Factory
         }
         public string GetAttackType()
         {
-            return this.GetType().Name;
+            return GetType().Name;
         }
     }
 
@@ -36,7 +36,7 @@ namespace Abstract_Factory
         }
         public string GetAttackType()
         {
-            return this.GetType().Name;
+            return GetType().Name;
         }
     }
     class Shieldbash : ISecondAttack
@@ -49,7 +49,7 @@ namespace Abstract_Factory
         }
         public string GetAttackType()
         {
-            return this.GetType().Name;
+            return GetType().Name;
         }
     }
     class Frostball : ISecondAttack
@@ -62,7 +62,7 @@ namespace Abstract_Factory
         }
         public string GetAttackType()
         {
-            return this.GetType().Name;
+            return GetType().Name;
         }
     }
 }

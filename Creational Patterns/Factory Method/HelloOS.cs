@@ -18,6 +18,7 @@ namespace Factory_Method
             return hello_str;
         }
     }
+
     class HelloLinux : IHelloOS
     {
         private readonly string hello_str;

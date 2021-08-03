@@ -18,6 +18,7 @@ namespace Factory_Method
             return new HelloWin();
         }
     }
+
     class LinuxFactory : HelloFactory
     {
         public override IHelloOS CreateObj()

@@ -12,72 +12,6 @@ namespace Abstract_Factory
             SetupPlayerClass();
             SetupEnemy();
         }
-        public void Start()
-        {
-            PrintWelcomeMessage();
-            
-            while (true)
-            {
-                Console.Write('\n');
-                PrintUnitInfo(player);
-                PrintUnitInfo(enemy);
-                Console.WriteLine("Your turn!");
-                string attackType = "";
-                int dmg = 0;
-                bool turn = false;
-                while (!turn)
-                {
-                    switch (Console.ReadKey(true).KeyChar)
-                    {
-                        case '1':
-                            dmg = player.MainAttack.Damage(enemy);
-                            attackType = player.MainAttack.GetAttackType();
-                            turn = true;
-                        break;
-
-                        case '2':
-                            dmg = player.SecondAttack.Damage(enemy);
-                            attackType = player.SecondAttack.GetAttackType();
-                            turn = true;
-                        break;
-
-                        default:
-                        break;
-                    }
-                }
-                Console.WriteLine($"Dealing damage by {attackType}: {dmg}");
-                Thread.Sleep(1000);
-                if (enemy.GetHP() <= 0)
-                {
-                    PrintEndGameMessage("You are winner!");
-                    return;
-                }
-
-                switch (RandomWrapper.random.Next(1, 3))
-                {
-                    case 1:
-                        dmg = enemy.MainAttack.Damage(player);
-                        attackType = enemy.MainAttack.GetAttackType();
-                        break;
-
-                    case 2:
-                        dmg = enemy.SecondAttack.Damage(player);
-                        attackType = enemy.SecondAttack.GetAttackType();
-                        break;
-
-                    default:
-                        throw new Exception("What the hell with random?!");
-                }
-                Console.WriteLine($"Got damage by {attackType}: {dmg}");
-                Thread.Sleep(1000);
-                if (player.GetHP() <= 0)
-                {
-                    PrintEndGameMessage("You are dead!");
-                    return;
-                }
-            }
-        }
-
         private string SetPlayerName()
         {
             Console.Write("Write your player name: ");
@@ -100,19 +34,19 @@ namespace Abstract_Factory
                     case '1':
                         player = new Warrior(name);
                         choose = true;
-                    break;
+                        break;
 
                     case '2':
                         player = new Mage(name);
                         choose = true;
-                    break;
+                        break;
 
                     default:
-                    break;
+                        break;
                 }
             }
 
-            Console.WriteLine($"Ok. Your Class is {player.GetUnitType()} (HP: {player.GetHP()})");
+            Console.WriteLine($"Ok. Your Class is {player.GetUnitType()} (HP: {player.HitPoints})");
             Console.WriteLine($"{player.GetReplic()}\n");
         }
         private void SetupEnemy()
@@ -124,6 +58,74 @@ namespace Abstract_Factory
                 _ => throw new Exception("What the hell with random?!"),
             };
         }
+
+        public void Start()
+        {
+            PrintWelcomeMessage();
+            while (true)
+            {
+                Console.Write('\n');
+                PrintUnitInfo(player);
+                PrintUnitInfo(enemy);
+
+                string attackType = string.Empty;
+                int dmg = 0;
+
+                bool turn = false;
+                Console.WriteLine("Your turn!");
+                while (!turn)
+                {
+                    switch (Console.ReadKey(true).KeyChar)
+                    {
+                        case '1':
+                            dmg = player.MainAttack.Damage(enemy);
+                            attackType = player.MainAttack.GetAttackType();
+                            turn = true;
+                        break;
+
+                        case '2':
+                            dmg = player.SecondAttack.Damage(enemy);
+                            attackType = player.SecondAttack.GetAttackType();
+                            turn = true;
+                        break;
+
+                        default:
+                        break;
+                    }
+                }
+                Console.WriteLine($"Dealing damage by {attackType}: {dmg}");
+                Thread.Sleep(1000);
+                if (enemy.HitPoints <= 0)
+                {
+                    PrintEndGameMessage("You are winner!");
+                    return;
+                }
+
+                switch (RandomWrapper.random.Next(1, 3))
+                {
+                    case 1:
+                        dmg = enemy.MainAttack.Damage(player);
+                        attackType = enemy.MainAttack.GetAttackType();
+                    break;
+
+                    case 2:
+                        dmg = enemy.SecondAttack.Damage(player);
+                        attackType = enemy.SecondAttack.GetAttackType();
+                    break;
+
+                    default:
+                    throw new Exception("What the hell with random?!");
+                }
+                Console.WriteLine($"Got damage by {attackType}: {dmg}");
+                Thread.Sleep(1000);
+                if (player.HitPoints <= 0)
+                {
+                    PrintEndGameMessage("You are dead!");
+                    return;
+                }
+            }
+        }
+        
         private void PrintWelcomeMessage()
         {
             Thread.Sleep(3000);
@@ -135,8 +137,8 @@ namespace Abstract_Factory
         }
         private void PrintEnemyInfo()
         {
-            Console.WriteLine($"Your enemy is {enemy.GetName()}");
-            Console.WriteLine($"Class is {enemy.GetUnitType()} (HP: {enemy.GetHP()})");
+            Console.WriteLine($"Your enemy is {enemy.Name}");
+            Console.WriteLine($"Class is {enemy.GetUnitType()} (HP: {enemy.HitPoints})");
             Console.WriteLine($"{enemy.GetReplic()}\n");
         }
         private void PrintHelp()
@@ -148,7 +150,7 @@ namespace Abstract_Factory
         }
         private void PrintUnitInfo(Unit unit)
         {
-            Console.WriteLine($"{unit.GetName()} | {unit.GetUnitType()} | {unit.GetHP()}");
+            Console.WriteLine($"{unit.Name} | {unit.GetUnitType()} | {unit.HitPoints}");
         }
         private void PrintEndGameMessage(string msg)
         {

@@ -18,6 +18,7 @@ namespace Abstract_Factory
             return new Frostball();
         }
     }
+
     class PhysicsAbilitesFactory : IAbilitiesFactory
     {
         public IMainAttack CreateMainAttack()

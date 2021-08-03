@@ -1,6 +1,4 @@
 ﻿
-using System;
-
 namespace Abstract_Factory
 {
     static class AppMain

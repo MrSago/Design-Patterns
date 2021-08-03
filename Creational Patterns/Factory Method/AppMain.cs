@@ -5,16 +5,15 @@ namespace Factory_Method
 {
     static class AppMain
     {
-        static HelloFactory HF;
-        static void Init()
+        static HelloFactory Init()
         {
             if (OperatingSystem.IsWindows())
             {
-                HF = new WinFactory();
+                return new WinFactory();
             }
             else if (OperatingSystem.IsLinux())
             {
-                HF = new LinuxFactory();
+                return new LinuxFactory();
             }
             else
             {
@@ -23,9 +22,9 @@ namespace Factory_Method
         }
         static void Main(string[] args)
         {
-            Init();
-            Console.WriteLine(HF.HelloOS.GetHello());
-            Console.ReadKey();
+            HelloFactory helloFactory = Init();
+            Console.WriteLine(helloFactory.HelloOS.GetHello());
+            Console.ReadKey(true);
         }
     }
 }

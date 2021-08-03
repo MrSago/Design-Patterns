@@ -14,13 +14,13 @@ namespace Abstract_Factory
             name = _name;
             hitpoints = _hp;
         }
-        public string GetName()
+        public string Name
         {
-            return name;
+            get => name;
         }
-        public int GetHP()
+        public int HitPoints
         {
-            return hitpoints;
+            get => hitpoints;
         }
         public int GotDamage(int dmg)
         {
@@ -28,7 +28,7 @@ namespace Abstract_Factory
         }
         public string GetUnitType()
         {
-            return this.GetType().Name;
+            return GetType().Name;
         }
         public abstract string GetReplic();
     }
@@ -42,13 +42,14 @@ namespace Abstract_Factory
             return "I'm strong Warrior! Zag-Zag!";
         }
     }
+
     class Mage : Unit
     {
         public Mage(string _name, int _hp = 100) :
             base(new MagicAbilitiesFactory(), _name, _hp) {}
         public override string GetReplic()
         {
-            return "I'm cool mage!";
+            return "I'm smart mage! 2x2=4!";
         }
     }
 }

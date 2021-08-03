@@ -8,21 +8,21 @@ namespace Builder
         static void Main(string[] args)
         {
             Director director = new();
-            ConcreteBuilder cb = new();
-            director.Builder = cb;
+            ConcreteBuilder builder = new();
+            director.Builder = builder;
 
             Console.WriteLine("Basic product:");
             director.BuildMinProduct();
-            Console.WriteLine(cb.GetProduct().GetParts());
+            Console.WriteLine(builder.GetProduct().GetParts());
 
             Console.WriteLine("Full product:");
             director.BuildMaxProduct();
-            Console.WriteLine(cb.GetProduct().GetParts());
+            Console.WriteLine(builder.GetProduct().GetParts());
 
             Console.WriteLine("Manual product:");
-            cb.BuildPartA();
-            cb.BuildPartC();
-            Console.WriteLine(cb.GetProduct().GetParts());
+            builder.BuildPartA();
+            builder.BuildPartC();
+            Console.WriteLine(builder.GetProduct().GetParts());
 
             Console.ReadKey(true);
         }
