@@ -7,22 +7,28 @@ namespace Builder
     {
         static void Main(string[] args)
         {
-            Director director = new();
-            ConcreteBuilder builder = new();
+            BurgerSeller director = new();
+            McDonaldsWorker builder = new();
             director.Builder = builder;
 
-            Console.WriteLine("Basic product:");
-            director.BuildMinProduct();
-            Console.WriteLine(builder.GetProduct().GetParts());
+            Console.WriteLine("Cheese burger:");
+            director.BuildCheeseBurger();
+            builder.GetBurger().PrintProps();
 
-            Console.WriteLine("Full product:");
-            director.BuildMaxProduct();
-            Console.WriteLine(builder.GetProduct().GetParts());
+            Console.WriteLine("Tomato burger:");
+            director.BuildTomatoBurger();
+            builder.GetBurger().PrintProps();
 
-            Console.WriteLine("Manual product:");
-            builder.BuildPartA();
-            builder.BuildPartC();
-            Console.WriteLine(builder.GetProduct().GetParts());
+            Console.WriteLine("Full burger:");
+            director.BuildFullBurger();
+            builder.GetBurger().PrintProps();
+
+            Console.WriteLine("Custom burger:");
+            builder.SetSize(15.4f);
+            builder.AddCheese(2);
+            builder.AddTomato();
+            builder.AddLettuce(2);
+            builder.GetBurger().PrintProps();
 
             Console.ReadKey(true);
         }
