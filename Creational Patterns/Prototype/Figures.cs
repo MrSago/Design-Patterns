@@ -3,40 +3,34 @@ namespace Prototype
 {
     class Rectangle : Shape
     {
-        private readonly double Width, Height;
-        public Rectangle(double _x, double _y, string _color, double _width, double _height) :
-            base(_x, _y, _color)
+        private readonly double _width, _height;
+        public Rectangle(double x, double y, string color, double width, double height) :
+            base(x, y, color)
         {
-            Width = _width;
-            Height = _height;
+            _width = width;
+            _height = height;
         }
-        public override Shape Clone()
-        {
-            return (Rectangle)MemberwiseClone();
-        }
+        public override Shape Clone() => (Rectangle)MemberwiseClone();
         public override string GetInfo()
         {
-            return $"It's {GetType().Name}: Width={Width}, Heigth={Height}\n" +
-                   $"X={X}, Y={Y}, color={color}\n";
+            return $"It's {GetType().Name}: Width={_width}, Heigth={_height}\n" +
+                   $"X={_x}, Y={_y}, color={_color}\n";
         }
     }
 
     class Circle : Shape
     {
-        private readonly double Radius;
-        public Circle(double _x, double _y, string _color, double _radius) :
-            base(_x, _y, _color)
+        private readonly double _radius;
+        public Circle(double x, double y, string color, double radius) :
+            base(x, y, color)
         {
-            Radius = _radius;
+            _radius = radius;
         }
-        public override Shape Clone()
-        {
-            return (Circle)MemberwiseClone();
-        }
+        public override Shape Clone() => (Circle)MemberwiseClone();
         public override string GetInfo()
         {
-            return $"It's {GetType().Name}: Radius={Radius}\n" +
-                   $"X={X}, Y={Y}, color={color}\n";
+            return $"It's {GetType().Name}: Radius={_radius}\n" +
+                   $"X={_x}, Y={_y}, color={_color}\n";
         }
     }
 }

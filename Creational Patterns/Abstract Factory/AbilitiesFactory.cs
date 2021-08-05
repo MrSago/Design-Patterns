@@ -9,26 +9,14 @@ namespace Abstract_Factory
 
     class MagicAbilitiesFactory : IAbilitiesFactory
     {
-        public IMainAttack CreateMainAttack()
-        {
-            return new Fireball();
-        }
-        public ISecondAttack CreateSecondAttack()
-        {
-            return new Frostball();
-        }
+        public IMainAttack CreateMainAttack() => new Fireball();
+        public ISecondAttack CreateSecondAttack() => new Frostball();
     }
 
     class PhysicsAbilitesFactory : IAbilitiesFactory
     {
-        public IMainAttack CreateMainAttack()
-        {
-            return new Sword();
-        }
-        public ISecondAttack CreateSecondAttack()
-        {
-            return new Shieldbash();
-        }
+        public IMainAttack CreateMainAttack() => new Sword();
+        public ISecondAttack CreateSecondAttack() => new Shieldbash();
     }
 }
 

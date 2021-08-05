@@ -3,27 +3,27 @@ namespace Builder
 {
     class BurgerSeller
     {
-        private IBurgerBuilder builder;
-        public IBurgerBuilder Builder { set { builder = value; } }
+        private IBurgerBuilder _builder;
+        public IBurgerBuilder Builder { set => _builder = value; }
         public void BuildCheeseBurger()
         {
-            builder.SetSize(18.5f);
-            builder.AddCheese(5);
-            builder.AddTomato(3);
+            _builder.SetSize(18.5f);
+            _builder.AddCheese(5);
+            _builder.AddTomato(3);
         }
         public void BuildTomatoBurger()
         {
-            builder.SetSize(17.7f);
-            builder.AddTomato(6);
-            builder.AddPepperoni(3);
+            _builder.SetSize(17.7f);
+            _builder.AddTomato(6);
+            _builder.AddPepperoni(3);
         }
         public void BuildFullBurger()
         {
-            builder.SetSize(20.2f);
-            builder.AddCheese(3);
-            builder.AddLettuce(3);
-            builder.AddPepperoni(3);
-            builder.AddTomato(3);
+            _builder.SetSize(20.2f);
+            _builder.AddCheese(3);
+            _builder.AddLettuce(3);
+            _builder.AddPepperoni(3);
+            _builder.AddTomato(3);
         }
     }
 }

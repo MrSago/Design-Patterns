@@ -4,28 +4,25 @@ namespace Singletone
     class Singletone
     {
         private Singletone() { }
-        private static Singletone instance;
-        private static readonly object mutex = new();
+        private static Singletone _instance;
+        private static readonly object _mutex = new();
         public static Singletone GetInstance(string _value = null)
         {
-            if (instance == null)
+            if (_instance == null)
             {
-                lock (mutex)
+                lock (_mutex)
                 {
-                    if (instance == null)
+                    if (_instance == null)
                     {
-                        instance = new();
-                        instance.value = _value;
+                        _instance = new();
+                        _instance.value = _value;
                     }
                 }
             }
-            return instance;
+            return _instance;
         }
         private string value;
-        public string Value
-        {
-            get => value;
-        }
+        public string Value { get => value; }
     }
 }
 

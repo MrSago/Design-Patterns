@@ -3,11 +3,11 @@ namespace Builder
 {
     interface IBurgerBuilder
     {
-        void SetSize(float _size);
-        void AddCheese(uint _count);
-        void AddLettuce(uint _count);
-        void AddTomato(uint _count);
-        void AddPepperoni(uint _count);
+        void SetSize(float size);
+        void AddCheese(uint count);
+        void AddLettuce(uint count);
+        void AddTomato(uint count);
+        void AddPepperoni(uint count);
     }
 }
 

@@ -3,27 +3,27 @@ namespace Adapter
 {
     class RoundHole
     {
-        private readonly double radius;
-        public RoundHole(double _raidus)
+        private readonly double _radius;
+        public RoundHole(double raidus)
         {
-            radius = _raidus;
+            _radius = raidus;
         }
-        public bool Fits(RoundPeg _peg)
+        public bool Fits(RoundPeg peg)
         {
-            return radius >= _peg.GetRadius();
+            return _radius >= peg.GetRadius();
         }
     }
 
     class RoundPeg
     {
-        private readonly double radius;
-        public RoundPeg(double _radius = -1.0)
+        private readonly double _radius;
+        public RoundPeg(double radius = -1.0)
         {
-            radius = _radius;
+            _radius = radius;
         }
         public virtual double GetRadius()
         {
-            return radius;
+            return _radius;
         }
     }
 }

@@ -5,27 +5,27 @@ namespace Adapter
 {
     class SquarePeg
     {
-        private readonly double width;
-        public SquarePeg(double _width)
+        private readonly double _width;
+        public SquarePeg(double width)
         {
-            width = _width;
+            _width = width;
         }
         public double GetWidth()
         {
-            return width;
+            return _width;
         }
     }
 
     class SquarePegAdapter : RoundPeg
     {
-        private readonly SquarePeg peg;
-        public SquarePegAdapter(SquarePeg _peg)
+        private readonly SquarePeg _peg;
+        public SquarePegAdapter(SquarePeg peg)
         {
-            peg = _peg;
+            _peg = peg;
         }
         public override double GetRadius()
         {
-            return peg.GetWidth() * Math.Sqrt(2) / 2;
+            return _peg.GetWidth() * Math.Sqrt(2) / 2;
         }
     }
 }

@@ -3,13 +3,13 @@ namespace Prototype
 {
     abstract class Shape
     {
-        protected readonly double X, Y;
-        protected readonly string color;
-        public Shape(double _x, double _y, string _color)
+        protected readonly double _x, _y;
+        protected readonly string _color;
+        public Shape(double x, double y, string color)
         {
-            X = _x;
-            Y = _y;
-            color = _color;
+            _x = x;
+            _y = y;
+            _color = color;
         }
         public abstract Shape Clone();
         public abstract string GetInfo();

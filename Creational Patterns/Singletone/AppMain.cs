@@ -9,26 +9,26 @@ namespace Singletone
         static bool done = false;
         static readonly EventWaitHandle ewh = new(false, EventResetMode.AutoReset);
 
-        static void InitIntance(int _thNum, string _value)
+        static void InitIntance(int thNum, string value)
         {
-            Singletone singletone = Singletone.GetInstance(_value);
-            Console.WriteLine($"Thread{_thNum}: Hash={singletone.GetHashCode()} | Value={singletone.Value}");
+            Singletone singletone = Singletone.GetInstance(value);
+            Console.WriteLine($"Thread{thNum}: Hash={singletone.GetHashCode()} | Value={singletone.Value}");
         }
 
-        static void ThreadBodyOne(string _value)
+        static void ThreadBodyOne(string value)
         {
-            InitIntance(1, _value);
+            InitIntance(1, value);
             done = true;
             ewh.Set();
         }
 
-        static void ThreadBodyTwo(string _value)
+        static void ThreadBodyTwo(string value)
         {
             while (!done)
             {
                 ewh.WaitOne();
             }
-            InitIntance(2, _value);
+            InitIntance(2, value);
         }
 
         static void TestMultiThreads()

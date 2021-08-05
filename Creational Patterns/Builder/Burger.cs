@@ -11,31 +11,31 @@ namespace Builder
         Lettuce,
         Tomato
     }
+
     class Burger
     {
-        private float size;
-        public float Size { set { size = value; } }
-        private readonly Dictionary<BurgerProps, uint> props;
-        public Burger(float _size = 0.0f)
+        private float _size;
+        public float Size { set => _size = value; }
+        private readonly Dictionary<BurgerProps, uint> _props = new();
+        public Burger(float size = 0.0f)
         {
-            size = _size;
-            props = new();
+            _size = size;
         }
-        public void Add(BurgerProps _prop, uint _count)
+        public void Add(BurgerProps prop, uint count)
         {
-            if (props.ContainsKey(_prop))
+            if (!_props.ContainsKey(prop))
             {
-                props[_prop] += _count;
+                _props[prop] = count;
             }
             else
             {
-                props[_prop] = _count;
+                _props[prop] += count;
             }
         }
         public void PrintProps()
         {
-            Console.WriteLine($"size: {size}");
-            foreach (var it in props)
+            Console.WriteLine($"size: {_size}");
+            foreach (var it in _props)
             {
                 Console.WriteLine($"{it.Key}: {it.Value}");
             }

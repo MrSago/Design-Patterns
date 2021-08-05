@@ -3,48 +3,40 @@ namespace Builder
 {
     class McDonaldsWorker : IBurgerBuilder
     {
-        private Burger product;
-
-        public McDonaldsWorker(float _size = 0.0f)
+        private Burger _product;
+        public McDonaldsWorker(float size = 0.0f)
         {
-            ResetProduct(_size);
+            ResetProduct(size);
         }
-
         public void SetSize(float size)
         {
-            product.Size = size;
+            _product.Size = size;
         }
-
-        public void AddCheese(uint _count = 1)
+        public void AddCheese(uint count = 1)
         {
-            product.Add(BurgerProps.Cheese, _count);
+            _product.Add(BurgerProps.Cheese, count);
         }
-
-        public void AddPepperoni(uint _count = 1)
+        public void AddPepperoni(uint count = 1)
         {
-            product.Add(BurgerProps.Pepperoni, _count);
+            _product.Add(BurgerProps.Pepperoni, count);
         }
-
-        public void AddLettuce(uint _count = 1)
+        public void AddLettuce(uint count = 1)
         {
-            product.Add(BurgerProps.Lettuce, _count);
+            _product.Add(BurgerProps.Lettuce, count);
         }
-
-        public void AddTomato(uint _count = 1)
+        public void AddTomato(uint count = 1)
         {
-            product.Add(BurgerProps.Tomato, _count);
+            _product.Add(BurgerProps.Tomato, count);
         }
-
         public Burger GetBurger()
         {
-            Burger burger = product;
+            Burger burger = _product;
             ResetProduct();
             return burger;
         }
-
-        private void ResetProduct(float _size = 0.0f)
+        private void ResetProduct(float size = 0.0f)
         {
-            product = new(_size);
+            _product = new(size);
         }
     }
 }

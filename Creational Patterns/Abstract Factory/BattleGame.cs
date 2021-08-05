@@ -6,7 +6,7 @@ namespace Abstract_Factory
 {
     class BattleGame
     {
-        private Unit player, enemy;
+        private Unit _player, _enemy;
         public BattleGame()
         {
             SetupPlayerClass();
@@ -32,12 +32,12 @@ namespace Abstract_Factory
                 switch (Console.ReadKey(true).KeyChar)
                 {
                     case '1':
-                        player = new Warrior(name);
+                        _player = new Warrior(name);
                         choose = true;
                         break;
 
                     case '2':
-                        player = new Mage(name);
+                        _player = new Mage(name);
                         choose = true;
                         break;
 
@@ -46,12 +46,12 @@ namespace Abstract_Factory
                 }
             }
 
-            Console.WriteLine($"Ok. Your Class is {player.GetUnitType()} (HP: {player.HitPoints})");
-            Console.WriteLine($"{player.GetReplic()}\n");
+            Console.WriteLine($"Ok. Your Class is {_player.UnitType} (HP: {_player.HitPoints})");
+            Console.WriteLine($"{_player.Replic}\n");
         }
         private void SetupEnemy()
         {
-            enemy = RandomWrapper.random.Next(1, 3) switch
+            _enemy = RandomWrapper.Random.Next(1, 3) switch
             {
                 1 => new Warrior("Aleshka Popovich"),
                 2 => new Mage("Robin Bobin"),
@@ -65,8 +65,8 @@ namespace Abstract_Factory
             while (true)
             {
                 Console.Write('\n');
-                PrintUnitInfo(player);
-                PrintUnitInfo(enemy);
+                PrintUnitInfo(_player);
+                PrintUnitInfo(_enemy);
 
                 string attackType = string.Empty;
                 int dmg = 0;
@@ -78,14 +78,14 @@ namespace Abstract_Factory
                     switch (Console.ReadKey(true).KeyChar)
                     {
                         case '1':
-                            dmg = player.MainAttack.Damage(enemy);
-                            attackType = player.MainAttack.GetAttackType();
+                            dmg = _player.MainAttack.Damage(_enemy);
+                            attackType = _player.MainAttack.AttackType;
                             turn = true;
                         break;
 
                         case '2':
-                            dmg = player.SecondAttack.Damage(enemy);
-                            attackType = player.SecondAttack.GetAttackType();
+                            dmg = _player.SecondAttack.Damage(_enemy);
+                            attackType = _player.SecondAttack.AttackType;
                             turn = true;
                         break;
 
@@ -95,22 +95,22 @@ namespace Abstract_Factory
                 }
                 Console.WriteLine($"Dealing damage by {attackType}: {dmg}");
                 Thread.Sleep(1000);
-                if (enemy.HitPoints <= 0)
+                if (_enemy.HitPoints <= 0)
                 {
                     PrintEndGameMessage("You are winner!");
                     return;
                 }
 
-                switch (RandomWrapper.random.Next(1, 3))
+                switch (RandomWrapper.Random.Next(1, 3))
                 {
                     case 1:
-                        dmg = enemy.MainAttack.Damage(player);
-                        attackType = enemy.MainAttack.GetAttackType();
+                        dmg = _enemy.MainAttack.Damage(_player);
+                        attackType = _enemy.MainAttack.AttackType;
                     break;
 
                     case 2:
-                        dmg = enemy.SecondAttack.Damage(player);
-                        attackType = enemy.SecondAttack.GetAttackType();
+                        dmg = _enemy.SecondAttack.Damage(_player);
+                        attackType = _enemy.SecondAttack.AttackType;
                     break;
 
                     default:
@@ -118,7 +118,7 @@ namespace Abstract_Factory
                 }
                 Console.WriteLine($"Got damage by {attackType}: {dmg}");
                 Thread.Sleep(1000);
-                if (player.HitPoints <= 0)
+                if (_player.HitPoints <= 0)
                 {
                     PrintEndGameMessage("You are dead!");
                     return;
@@ -137,20 +137,20 @@ namespace Abstract_Factory
         }
         private void PrintEnemyInfo()
         {
-            Console.WriteLine($"Your enemy is {enemy.Name}");
-            Console.WriteLine($"Class is {enemy.GetUnitType()} (HP: {enemy.HitPoints})");
-            Console.WriteLine($"{enemy.GetReplic()}\n");
+            Console.WriteLine($"Your enemy is {_enemy.Name}");
+            Console.WriteLine($"Class is {_enemy.UnitType} (HP: {_enemy.HitPoints})");
+            Console.WriteLine($"{_enemy.Replic}\n");
         }
         private void PrintHelp()
         {
             Console.WriteLine("Your attack abilities:");
-            Console.WriteLine($"1.{player.MainAttack.GetAttackType()}");
-            Console.WriteLine($"2.{player.SecondAttack.GetAttackType()}");
+            Console.WriteLine($"1.{_player.MainAttack.AttackType}");
+            Console.WriteLine($"2.{_player.SecondAttack.AttackType}");
             Console.WriteLine("Press the same key to use it!");
         }
         private void PrintUnitInfo(Unit unit)
         {
-            Console.WriteLine($"{unit.Name} | {unit.GetUnitType()} | {unit.HitPoints}");
+            Console.WriteLine($"{unit.Name} | {unit.UnitType} | {unit.HitPoints}");
         }
         private void PrintEndGameMessage(string msg)
         {
