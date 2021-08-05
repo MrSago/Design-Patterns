@@ -6,7 +6,7 @@ namespace Singletone
         private Singletone() { }
         private static Singletone instance;
         private static readonly object mutex = new();
-        public static Singletone GetInstance(string _value)
+        public static Singletone GetInstance(string _value = null)
         {
             if (instance == null)
             {

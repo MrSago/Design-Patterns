@@ -6,20 +6,40 @@ namespace Singletone
 {
     static class AppMain
     {
-        static void ThreadBody(int _threadNum, string _value)
+        static bool done = false;
+        static EventWaitHandle ewh = new(false, EventResetMode.AutoReset);
+
+        static void InitIntance(int _thNum, string _value)
         {
             Singletone singletone = Singletone.GetInstance(_value);
-            Console.WriteLine($"Thread{_threadNum}: Hash={singletone.GetHashCode()} | Value={singletone.Value}");
+            Console.WriteLine($"Thread{_thNum}: Hash={singletone.GetHashCode()} | Value={singletone.Value}");
         }
+
+        static void ThreadBodyOne(string _value)
+        {
+            InitIntance(1, _value);
+            done = true;
+            ewh.Set();
+        }
+
+        static void ThreadBodyTwo(string _value)
+        {
+            while (!done)
+            {
+                ewh.WaitOne();
+            }
+            InitIntance(2, _value);
+        }
+
         static void TestMultiThreads()
         {
             Thread t1 = new(() =>
             {
-                ThreadBody(1, "ABOBA");
+                ThreadBodyOne("ABOBA");
             });
             Thread t2 = new(() =>
             {
-                ThreadBody(2, "AMOGUS");
+                ThreadBodyTwo("AMOGUS");
             });
 
             t1.Start();
@@ -28,6 +48,7 @@ namespace Singletone
             t1.Join();
             t2.Join();
         }
+
         static void TestMainThread()
         {
             Singletone s1 = Singletone.GetInstance("BEAR");
@@ -45,6 +66,8 @@ namespace Singletone
             Console.WriteLine($"MainThread(s1): Hash={s1.GetHashCode()} | Value={s1.Value}");
             Console.WriteLine($"MainThread(s2): Hash={s2.GetHashCode()} | Value={s2.Value}");
         }
+
+        [MTAThread]
         static void Main(string[] args)
         {
             TestMultiThreads();
