@@ -7,7 +7,7 @@ namespace Singletone
     static class AppMain
     {
         static bool done = false;
-        static EventWaitHandle ewh = new(false, EventResetMode.AutoReset);
+        static readonly EventWaitHandle ewh = new(false, EventResetMode.AutoReset);
 
         static void InitIntance(int _thNum, string _value)
         {
