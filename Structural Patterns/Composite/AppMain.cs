@@ -13,14 +13,14 @@ namespace Composite
             Console.WriteLine("Client get simple component:");
             client.ClientCode(leaf);
 
-            Composite branch1 = new Composite();
+            Composite branch1 = new();
             branch1.Add(new Leaf());
             branch1.Add(new Leaf());
 
-            Composite branch2 = new Composite();
+            Composite branch2 = new();
             branch2.Add(new Leaf());
 
-            Composite tree = new Composite();
+            Composite tree = new();
             tree.Add(branch1);
             tree.Add(branch2);
             Console.WriteLine("Client now got a composite tree:");
