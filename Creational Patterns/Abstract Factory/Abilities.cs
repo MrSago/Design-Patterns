@@ -6,6 +6,7 @@ namespace Abstract_Factory
         int Damage(Unit unit);
         string AttackType { get; }
     }
+
     interface ISecondAttack
     {
         int Damage(Unit unit);
@@ -20,6 +21,7 @@ namespace Abstract_Factory
             _ = unit.GotDamage(dmg);
             return dmg;
         }
+
         public string AttackType => GetType().Name;
     }
 
@@ -31,8 +33,10 @@ namespace Abstract_Factory
             _ = unit.GotDamage(dmg);
             return dmg;
         }
+
         public string AttackType => GetType().Name;
     }
+
     class Shieldbash : ISecondAttack
     {
         public int Damage(Unit unit)
@@ -41,8 +45,10 @@ namespace Abstract_Factory
             _ = unit.GotDamage(dmg);
             return dmg;
         }
+
         public string AttackType => GetType().Name;
     }
+
     class Frostball : ISecondAttack
     {
         public int Damage(Unit unit)
@@ -51,6 +57,7 @@ namespace Abstract_Factory
             _ = unit.GotDamage(dmg);
             return dmg;
         }
+
         public string AttackType => GetType().Name;
     }
 }

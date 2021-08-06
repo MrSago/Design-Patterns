@@ -16,11 +16,14 @@ namespace Builder
     {
         private float _size;
         public float Size { set => _size = value; }
+
         private readonly Dictionary<BurgerProps, uint> _props = new();
+
         public Burger(float size = 0.0f)
         {
             _size = size;
         }
+
         public void Add(BurgerProps prop, uint count)
         {
             if (!_props.ContainsKey(prop))
@@ -32,6 +35,7 @@ namespace Builder
                 _props[prop] += count;
             }
         }
+
         public void PrintProps()
         {
             Console.WriteLine($"size: {_size}");

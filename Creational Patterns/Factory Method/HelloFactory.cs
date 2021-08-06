@@ -4,7 +4,9 @@ namespace Factory_Method
     abstract class HelloFactory
     {
         public IHelloOS HelloOS;
+
         public abstract IHelloOS CreateObj();
+
         public HelloFactory()
         {
             HelloOS = CreateObj();

@@ -7,17 +7,20 @@ namespace Abstract_Factory
     class BattleGame
     {
         private Unit _player, _enemy;
+
         public BattleGame()
         {
             SetupPlayerClass();
             SetupEnemy();
         }
+
         private string SetPlayerName()
         {
             Console.Write("Write your player name: ");
             string name = Console.ReadLine();
             return string.IsNullOrEmpty(name) ? "NoName" : name;
         }
+
         private void SetupPlayerClass()
         {
             string name = SetPlayerName();
@@ -49,6 +52,7 @@ namespace Abstract_Factory
             Console.WriteLine($"Ok. Your Class is {_player.UnitType} (HP: {_player.HitPoints})");
             Console.WriteLine($"{_player.Replic}\n");
         }
+
         private void SetupEnemy()
         {
             _enemy = RandomWrapper.Random.Next(1, 3) switch
@@ -135,12 +139,14 @@ namespace Abstract_Factory
             Console.WriteLine("Prepare for Battle!");
             Thread.Sleep(5000);
         }
+
         private void PrintEnemyInfo()
         {
             Console.WriteLine($"Your enemy is {_enemy.Name}");
             Console.WriteLine($"Class is {_enemy.UnitType} (HP: {_enemy.HitPoints})");
             Console.WriteLine($"{_enemy.Replic}\n");
         }
+
         private void PrintHelp()
         {
             Console.WriteLine("Your attack abilities:");
@@ -148,10 +154,12 @@ namespace Abstract_Factory
             Console.WriteLine($"2.{_player.SecondAttack.AttackType}");
             Console.WriteLine("Press the same key to use it!");
         }
+
         private void PrintUnitInfo(Unit unit)
         {
             Console.WriteLine($"{unit.Name} | {unit.UnitType} | {unit.HitPoints}");
         }
+
         private void PrintEndGameMessage(string msg)
         {
             Console.WriteLine(msg);

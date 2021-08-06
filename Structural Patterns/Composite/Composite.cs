@@ -6,6 +6,7 @@ namespace Composite
     class Leaf : Component
     {
         public override bool IsComposite => false;
+
         public override string Operation()
         {
             return "Leaf";
@@ -15,14 +16,17 @@ namespace Composite
     class Composite : Component
     {
         protected readonly List<Component> _children = new();
+
         public override void Add(Component component)
         {
             _children.Add(component);
         }
+
         public override void Remove(Component component)
         {
             _children.Remove(component);
         }
+
         public override string Operation()
         {
             int i = 0;

@@ -9,10 +9,12 @@ namespace Factory_Method
     class HelloWin : IHelloOS
     {
         private readonly string hello_str;
+
         public HelloWin()
         {
             hello_str = "Hello World from Windows!\n";
         }
+
         public string GetHello()
         {
             return hello_str;
@@ -22,10 +24,12 @@ namespace Factory_Method
     class HelloLinux : IHelloOS
     {
         private readonly string hello_str;
+
         public HelloLinux()
         {
             hello_str = "Hello World from Linux!\n";
         }
+
         public string GetHello()
         {
             return hello_str;

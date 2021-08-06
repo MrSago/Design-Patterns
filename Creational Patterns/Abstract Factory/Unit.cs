@@ -5,8 +5,10 @@ namespace Abstract_Factory
     {
         public IMainAttack MainAttack;
         public ISecondAttack SecondAttack;
+
         private readonly string _name;
         public string Name => _name;
+
         private int _hitpoints;
         public int HitPoints => _hitpoints;
 
@@ -19,7 +21,9 @@ namespace Abstract_Factory
         }
 
         public int GotDamage(int dmg) => (_hitpoints -= dmg) > 0 ? _hitpoints : 0;
+
         public string UnitType => GetType().Name;
+
         public abstract string Replic { get; }
     }
 
