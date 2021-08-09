@@ -44,7 +44,7 @@ namespace Flyweight
         {
             string key = GetKey(sharedState);
 
-            if (_flyweights.Where(t => t.Item2 == key).Count() == 0)
+            if (!_flyweights.Any(t => t.Item2 == key))
             {
                 Console.WriteLine("FlyweightFactory: Can't find a flyweight, creating new one.");
                 _flyweights.Add(new Tuple<Flyweight, string>(

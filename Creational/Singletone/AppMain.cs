@@ -68,7 +68,7 @@ namespace Singletone
         }
 
         [MTAThread]
-        static void Main(string[] args)
+        static void Main()
         {
             TestMultiThreads();
             TestMainThread();

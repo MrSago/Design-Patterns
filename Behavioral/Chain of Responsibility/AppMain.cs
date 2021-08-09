@@ -5,7 +5,7 @@ namespace Chain_of_Responsibility
 {
     static class AppMain
     {
-        static void Main(string[] args)
+        static void Main()
         {
             Client client = new();
 

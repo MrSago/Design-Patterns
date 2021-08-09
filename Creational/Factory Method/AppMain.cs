@@ -10,7 +10,7 @@ namespace Factory_Method
             OperatingSystem.IsLinux() ? new LinuxFactory() :
             throw new Exception("Unknown OS\n");
 
-        static void Main(string[] args)
+        static void Main()
         {
             HelloFactory helloFactory = Init();
             Console.Write(helloFactory.HelloOS.GetHello());

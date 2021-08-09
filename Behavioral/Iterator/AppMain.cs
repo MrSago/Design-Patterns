@@ -5,7 +5,7 @@ namespace Iterator
 {
     static class AppMain
     {
-        static void Main(string[] args)
+        static void Main()
         {
             WordsCollection collection = new();
             collection.AddItem("First");

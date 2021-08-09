@@ -5,7 +5,7 @@ namespace Adapter
 {
     static class AppMain
     {
-        static void Main(string[] args)
+        static void Main()
         {
             RoundHole hole = new(5.0);
             RoundPeg rpeg = new(5.0);

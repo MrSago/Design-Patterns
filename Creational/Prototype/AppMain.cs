@@ -6,7 +6,7 @@ namespace Prototype
 {
     static class AppMain
     {
-        static void Main(string[] args)
+        static void Main()
         {
             List<Shape> sourceList = new();
 

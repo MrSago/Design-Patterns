@@ -5,7 +5,7 @@ namespace Flyweight
 {
     static class AppMain
     {
-        static void Main(string[] args)
+        static void Main()
         {
             FlyweightFactory factory = new
             (

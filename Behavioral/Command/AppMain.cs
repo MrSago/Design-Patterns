@@ -5,7 +5,7 @@ namespace Command
 {
     static class AppMain
     {
-        static void Main(string[] args)
+        static void Main()
         {
             Invoker invoker = new();
             invoker.SetOnStart(new SimpleCommand("Say Hi!"));

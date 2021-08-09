@@ -5,7 +5,7 @@ namespace Builder
 {
     static class AppMain
     {
-        static void Main(string[] args)
+        static void Main()
         {
             BurgerSeller director = new();
             McDonaldsWorker builder = new();

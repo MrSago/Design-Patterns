@@ -7,7 +7,7 @@ namespace Chain_of_Responsibility
         {
             if ((request as string) == "Banana")
             {
-                return $"Monkey: I'll eat the {request.ToString()}.\n";
+                return $"Monkey: I'll eat the {request}.\n";
             }
             else
             {
@@ -22,7 +22,7 @@ namespace Chain_of_Responsibility
         {
             if (request.ToString() == "Nut")
             {
-                return $"Squirrel: I'll eat the {request.ToString()}.\n";
+                return $"Squirrel: I'll eat the {request}.\n";
             }
             else
             {
@@ -37,7 +37,7 @@ namespace Chain_of_Responsibility
         {
             if (request.ToString() == "MeatBall")
             {
-                return $"Dog: I'll eat the {request.ToString()}.\n";
+                return $"Dog: I'll eat the {request}.\n";
             }
             else
             {

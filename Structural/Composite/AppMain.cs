@@ -5,7 +5,7 @@ namespace Composite
 {
     static class AppMain
     {
-        static void Main(string[] args)
+        static void Main()
         {
             Client client = new();
 

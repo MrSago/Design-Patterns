@@ -5,7 +5,7 @@ namespace Facade
 {
     static class AppMain
     {
-        static void Main(string[] args)
+        static void Main()
         {
             Facade facade = new();
             Console.Write(facade.OperationResult());
