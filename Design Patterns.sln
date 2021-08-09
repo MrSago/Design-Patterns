@@ -28,13 +28,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bridge", "Structural Patter
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Composite", "Structural Patterns\Composite\Composite.csproj", "{08E6EFCE-D218-4971-B354-B5C3D9528C8F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Decorator", "Structural Patterns\Decorator\Decorator.csproj", "{13AD966C-FBC4-4CA4-968D-27AF53482B0A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Decorator", "Structural Patterns\Decorator\Decorator.csproj", "{13AD966C-FBC4-4CA4-968D-27AF53482B0A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Facade", "Structural Patterns\Facade\Facade.csproj", "{F239A94E-7209-43EA-B988-1BB78E0BB683}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Facade", "Structural Patterns\Facade\Facade.csproj", "{F239A94E-7209-43EA-B988-1BB78E0BB683}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flyweight", "Structural Patterns\Flyweight\Flyweight.csproj", "{94C7825E-A4E3-46F3-BF6F-1A83FF248834}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Flyweight", "Structural Patterns\Flyweight\Flyweight.csproj", "{94C7825E-A4E3-46F3-BF6F-1A83FF248834}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Proxy", "Structural Patterns\Proxy\Proxy.csproj", "{2D229449-E31C-40A6-8932-E2C5EBC4A605}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Proxy", "Structural Patterns\Proxy\Proxy.csproj", "{2D229449-E31C-40A6-8932-E2C5EBC4A605}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Behavioral", "Behavioral", "{1864A618-AD95-4D03-AF73-BFF45B121C80}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chain of Responsibility", "Behavioral\Chain of Responsibility\Chain of Responsibility.csproj", "{C53103FE-E2ED-4E66-A0FB-6E96E8CF6071}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -90,6 +94,10 @@ Global
 		{2D229449-E31C-40A6-8932-E2C5EBC4A605}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2D229449-E31C-40A6-8932-E2C5EBC4A605}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2D229449-E31C-40A6-8932-E2C5EBC4A605}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C53103FE-E2ED-4E66-A0FB-6E96E8CF6071}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C53103FE-E2ED-4E66-A0FB-6E96E8CF6071}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C53103FE-E2ED-4E66-A0FB-6E96E8CF6071}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C53103FE-E2ED-4E66-A0FB-6E96E8CF6071}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -107,6 +115,7 @@ Global
 		{F239A94E-7209-43EA-B988-1BB78E0BB683} = {6883E11B-A2C3-4152-A3E9-9A5ABC99D810}
 		{94C7825E-A4E3-46F3-BF6F-1A83FF248834} = {6883E11B-A2C3-4152-A3E9-9A5ABC99D810}
 		{2D229449-E31C-40A6-8932-E2C5EBC4A605} = {6883E11B-A2C3-4152-A3E9-9A5ABC99D810}
+		{C53103FE-E2ED-4E66-A0FB-6E96E8CF6071} = {1864A618-AD95-4D03-AF73-BFF45B121C80}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CB3A3604-19F8-43E4-9AB2-47EC383340B1}
