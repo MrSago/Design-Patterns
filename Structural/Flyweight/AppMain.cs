@@ -38,7 +38,7 @@ namespace Flyweight
 
             factory.ListFlyweights();
 
-            Console.ReadKey(true);
+            _ = Console.ReadKey(true);
         }
 
         public static void AddCarToPoliceDatabase(FlyweightFactory factory, Car car)

@@ -26,7 +26,7 @@ namespace Composite
             Console.WriteLine("Client now got a composite tree:");
             client.ClientCode(tree);
 
-            Console.ReadKey(true);
+            _ = Console.ReadKey(true);
         }
     }
 }

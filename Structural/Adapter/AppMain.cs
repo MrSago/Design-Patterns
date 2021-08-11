@@ -20,7 +20,7 @@ namespace Adapter
             Console.WriteLine($"{hole.Fits(small_sqpeg_adapter)}"); // True
             Console.WriteLine($"{hole.Fits(large_sqpeg_adapter)}"); // False
 
-            Console.ReadKey(true);
+            _ = Console.ReadKey(true);
         }
     }
 }

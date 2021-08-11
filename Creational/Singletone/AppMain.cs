@@ -72,7 +72,7 @@ namespace Singletone
         {
             TestMultiThreads();
             TestMainThread();
-            Console.ReadKey(true);
+            _ = Console.ReadKey(true);
         }
     }
 }

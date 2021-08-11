@@ -27,7 +27,7 @@ namespace Prototype
                 Console.WriteLine(it.GetInfo());
             }
 
-            Console.ReadKey(true);
+            _ = Console.ReadKey(true);
         }
     }
 }

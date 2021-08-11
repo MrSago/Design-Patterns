@@ -164,7 +164,7 @@ namespace Abstract_Factory
         {
             Console.WriteLine(msg);
             Console.WriteLine("Press any key to exit...");
-            Console.ReadKey(true);
+            _ = Console.ReadKey(true);
         }
     }
 }

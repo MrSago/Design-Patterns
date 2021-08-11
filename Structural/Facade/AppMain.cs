@@ -9,7 +9,7 @@ namespace Facade
         {
             Facade facade = new();
             Console.Write(facade.OperationResult());
-            Console.ReadKey(true);
+            _ = Console.ReadKey(true);
         }
     }
 }

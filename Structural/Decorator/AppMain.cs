@@ -18,7 +18,7 @@ namespace Decorator
             Console.WriteLine("Decorated components:");
             client.ClientCode(decoratorB);
 
-            Console.ReadKey(true);
+            _ = Console.ReadKey(true);
         }
     }
 }

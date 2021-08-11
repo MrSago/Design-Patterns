@@ -25,7 +25,7 @@ namespace Iterator
                 Console.WriteLine(element);
             }
 
-            Console.ReadKey(true);
+            _ = Console.ReadKey(true);
         }
     }
 }

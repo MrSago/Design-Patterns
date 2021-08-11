@@ -14,7 +14,7 @@ namespace Factory_Method
         {
             HelloFactory helloFactory = Init();
             Console.Write(helloFactory.HelloOS.GetHello());
-            Console.ReadKey(true);
+            _ = Console.ReadKey(true);
         }
     }
 }

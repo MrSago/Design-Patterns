@@ -19,7 +19,7 @@ namespace Proxy
             Proxy proxy = new(realSubject);
             client.ClientCode(proxy);
 
-            Console.ReadKey(true);
+            _ = Console.ReadKey(true);
         }
     }
 }

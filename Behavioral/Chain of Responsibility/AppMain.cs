@@ -22,7 +22,7 @@ namespace Chain_of_Responsibility
             Console.WriteLine("Subchain: Squirrel > Dog\n");
             client.ClientCode(squirrel);
 
-            Console.ReadKey(true);
+            _ = Console.ReadKey(true);
         }
     }
 }

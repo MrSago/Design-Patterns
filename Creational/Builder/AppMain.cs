@@ -30,7 +30,7 @@ namespace Builder
             builder.AddLettuce(2);
             builder.GetBurger().PrintProps();
 
-            Console.ReadKey(true);
+            _ = Console.ReadKey(true);
         }
     }
 }

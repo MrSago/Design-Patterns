@@ -15,7 +15,7 @@ namespace Command
 
             invoker.DoSomethingImportant();
 
-            Console.ReadKey(true);
+            _ = Console.ReadKey(true);
         }
     }
 }

@@ -23,7 +23,7 @@ namespace Bridge
             extendedAbstraction = new(new ConcreteImplementationB());
             client.ClientCode(extendedAbstraction);
 
-            Console.ReadKey(true);
+            _ = Console.ReadKey(true);
         }
     }
 }
