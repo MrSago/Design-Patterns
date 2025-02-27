@@ -1,13 +1,11 @@
-﻿
-namespace Builder
-{
-    interface IBurgerBuilder
-    {
-        void SetSize(float size);
-        void AddCheese(uint count);
-        void AddLettuce(uint count);
-        void AddTomato(uint count);
-        void AddPepperoni(uint count);
-    }
-}
+﻿namespace Builder;
 
+interface IBurgerBuilder
+{
+    IBurgerBuilder SetSize(float size);
+    IBurgerBuilder AddCheese(uint count = 1);
+    IBurgerBuilder AddLettuce(uint count = 1);
+    IBurgerBuilder AddTomato(uint count = 1);
+    IBurgerBuilder AddPepperoni(uint count = 1);
+    Burger GetBurger();
+}

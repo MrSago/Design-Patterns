@@ -1,51 +1,53 @@
-﻿
-namespace Builder
+﻿namespace Builder;
+
+class McDonaldsWorker : IBurgerBuilder
 {
-    class McDonaldsWorker : IBurgerBuilder
+    private Burger _product;
+
+    public McDonaldsWorker(float size = 0.0f)
     {
-        private Burger _product;
+        ResetProduct(size);
+    }
 
-        public McDonaldsWorker(float size = 0.0f)
-        {
-            ResetProduct(size);
-        }
+    public IBurgerBuilder SetSize(float size)
+    {
+        _product.Size = size;
+        return this;
+    }
 
-        public void SetSize(float size)
-        {
-            _product.Size = size;
-        }
+    public IBurgerBuilder AddCheese(uint count = 1)
+    {
+        _product.Add(BurgerProps.Cheese, count);
+        return this;
+    }
 
-        public void AddCheese(uint count = 1)
-        {
-            _product.Add(BurgerProps.Cheese, count);
-        }
+    public IBurgerBuilder AddPepperoni(uint count = 1)
+    {
+        _product.Add(BurgerProps.Pepperoni, count);
+        return this;
+    }
 
-        public void AddPepperoni(uint count = 1)
-        {
-            _product.Add(BurgerProps.Pepperoni, count);
-        }
+    public IBurgerBuilder AddLettuce(uint count = 1)
+    {
+        _product.Add(BurgerProps.Lettuce, count);
+        return this;
+    }
 
-        public void AddLettuce(uint count = 1)
-        {
-            _product.Add(BurgerProps.Lettuce, count);
-        }
+    public IBurgerBuilder AddTomato(uint count = 1)
+    {
+        _product.Add(BurgerProps.Tomato, count);
+        return this;
+    }
 
-        public void AddTomato(uint count = 1)
-        {
-            _product.Add(BurgerProps.Tomato, count);
-        }
+    public Burger GetBurger()
+    {
+        Burger burger = _product;
+        ResetProduct();
+        return burger;
+    }
 
-        public Burger GetBurger()
-        {
-            Burger burger = _product;
-            ResetProduct();
-            return burger;
-        }
-
-        private void ResetProduct(float size = 0.0f)
-        {
-            _product = new(size);
-        }
+    private void ResetProduct(float size = 0.0f)
+    {
+        _product = new(size);
     }
 }
-
