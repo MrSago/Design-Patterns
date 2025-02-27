@@ -1,13 +1,4 @@
-﻿
-namespace Abstract_Factory
-{
-    static class AppMain
-    {
-        static void Main()
-        {
-            BattleGame game = new();
-            game.Start();
-        }
-    }
-}
+﻿using Abstract_Factory;
 
+BattleGame game = new();
+game.Start();
