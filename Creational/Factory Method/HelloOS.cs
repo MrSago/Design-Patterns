@@ -1,39 +1,36 @@
-﻿
-namespace Factory_Method
+﻿namespace Factory_Method;
+
+interface IHelloOS
 {
-    interface IHelloOS
+    string GetHello();
+}
+
+class HelloWin : IHelloOS
+{
+    private readonly string _helloString;
+
+    public HelloWin()
     {
-        string GetHello();
+        _helloString = "Hello World from Windows!\n";
     }
 
-    class HelloWin : IHelloOS
+    public string GetHello()
     {
-        private readonly string hello_str;
-
-        public HelloWin()
-        {
-            hello_str = "Hello World from Windows!\n";
-        }
-
-        public string GetHello()
-        {
-            return hello_str;
-        }
-    }
-
-    class HelloLinux : IHelloOS
-    {
-        private readonly string hello_str;
-
-        public HelloLinux()
-        {
-            hello_str = "Hello World from Linux!\n";
-        }
-
-        public string GetHello()
-        {
-            return hello_str;
-        }
+        return _helloString;
     }
 }
 
+class HelloLinux : IHelloOS
+{
+    private readonly string _helloString;
+
+    public HelloLinux()
+    {
+        _helloString = "Hello World from Linux!\n";
+    }
+
+    public string GetHello()
+    {
+        return _helloString;
+    }
+}
