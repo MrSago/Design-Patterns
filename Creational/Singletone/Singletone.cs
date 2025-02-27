@@ -1,31 +1,38 @@
-﻿
-namespace Singletone
+﻿using System;
+
+namespace Singletone;
+
+class Singletone
 {
-    class Singletone
+    private Singletone() { }
+
+    private static Singletone? _instance;
+    private static readonly object _mutex = new();
+
+    public static Singletone GetInstance(string? value = null)
     {
-        private Singletone() {}
-
-        private static Singletone _instance;
-        private static readonly object _mutex = new();
-
-        public static Singletone GetInstance(string value = null)
+        if (_instance is not null)
         {
-            if (_instance == null)
-            {
-                lock (_mutex)
-                {
-                    if (_instance == null)
-                    {
-                        _instance = new();
-                        _instance._value = value;
-                    }
-                }
-            }
             return _instance;
         }
 
-        private string _value;
-        public string Value => _value;
+        lock (_mutex)
+        {
+            ArgumentNullException.ThrowIfNull(value, nameof(value));
+            _instance = new() { _value = value };
+        }
+        return _instance;
+    }
+
+    public static void Reset()
+    {
+        _instance = null;
+    }
+
+    private string _value = string.Empty;
+    public string Value
+    {
+        get => _value;
+        private init => _value = value;
     }
 }
-
