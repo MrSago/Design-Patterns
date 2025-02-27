@@ -153,7 +153,7 @@ class BattleGame
     {
         Console.Write("Write your player name: ");
         string name = Console.ReadLine();
-        return string.IsNullOrEmpty(name) ? "NoName" : name;
+        return string.IsNullOrWhiteSpace(name) ? "NoName" : name;
     }
 
     private static void PrintUnitInfo(Unit unit)
