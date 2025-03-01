@@ -1,27 +1,17 @@
-﻿
-using System;
+﻿using System;
+using Adapter;
 
-namespace Adapter
-{
-    static class AppMain
-    {
-        static void Main()
-        {
-            RoundHole hole = new(5.0);
-            RoundPeg rpeg = new(5.0);
-            Console.WriteLine($"{hole.Fits(rpeg)}"); // True
+RoundHole hole = new(5.0);
+RoundPeg rpeg = new(5.0);
+Console.WriteLine($"{hole.Fits(rpeg)}"); // True
 
-            SquarePeg small_sqpeg = new(5.0);
-            SquarePeg large_sqpeg = new(10.0);
-            //Console.WriteLine($"{hole.Fits(small_sqpeg)}"); // compile error
+SquarePeg smallSqpeg = new(5.0);
+SquarePeg largeSqpeg = new(10.0);
 
-            SquarePegAdapter small_sqpeg_adapter = new(small_sqpeg);
-            SquarePegAdapter large_sqpeg_adapter = new(large_sqpeg);
-            Console.WriteLine($"{hole.Fits(small_sqpeg_adapter)}"); // True
-            Console.WriteLine($"{hole.Fits(large_sqpeg_adapter)}"); // False
+// compile error: Argument 1: cannot convert from 'Adapter.SquarePeg' to 'Adapter.RoundPeg'CS1503
+// Console.WriteLine($"{hole.Fits(smallSqpeg)}");
 
-            _ = Console.ReadKey(true);
-        }
-    }
-}
-
+SquarePegAdapter smallSqpegAdapter = new(smallSqpeg);
+SquarePegAdapter largeSqpegAdapter = new(largeSqpeg);
+Console.WriteLine($"{hole.Fits(smallSqpegAdapter)}"); // True
+Console.WriteLine($"{hole.Fits(largeSqpegAdapter)}"); // False
