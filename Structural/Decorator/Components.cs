@@ -1,17 +1,14 @@
-﻿
-namespace Decorator
-{
-    interface IComponent
-    {
-        string Operation();
-    }
+﻿namespace Decorator;
 
-    class ConcreteComponent : IComponent
-    {
-        public virtual string Operation()
-        {
-            return "ConcreteComponent";
-        }
-    }
+interface IComponent
+{
+    string Operation();
 }
 
+class ConcreteComponent : IComponent
+{
+    public virtual string Operation()
+    {
+        return "ConcreteComponent";
+    }
+}

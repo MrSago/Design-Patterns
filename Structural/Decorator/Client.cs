@@ -1,14 +1,11 @@
-﻿
-using System;
+﻿using System;
 
-namespace Decorator
+namespace Decorator;
+
+class Client
 {
-    class Client
+    public void ClientCode(IComponent component)
     {
-        public void ClientCode(IComponent component)
-        {
-            Console.WriteLine($"Result: {component.Operation()}\n");
-        }
+        Console.WriteLine($"Result: {component.Operation()}\n");
     }
 }
-

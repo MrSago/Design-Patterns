@@ -1,25 +1,15 @@
-﻿
-using System;
+﻿using System;
+using Decorator;
 
-namespace Decorator
-{
-    static class AppMain
-    {
-        static void Main()
-        {
-            Client client = new();
+Client client = new();
+ConcreteComponent simple = new();
 
-            ConcreteComponent simple = new();
-            Console.WriteLine("Simple component:");
-            client.ClientCode(simple);
+Console.WriteLine("Simple component:");
+client.ClientCode(simple);
 
-            ConcreteDecoratorA decoratorA = new(simple);
-            ConcreteDecoratorB decoratorB = new(decoratorA);
-            Console.WriteLine("Decorated components:");
-            client.ClientCode(decoratorB);
+ConcreteDecoratorA decoratorA = new(simple);
+ConcreteDecoratorB decoratorB = new(decoratorA);
+ConcreteDecoratorB decoratorB2 = new(decoratorB);
 
-            _ = Console.ReadKey(true);
-        }
-    }
-}
-
+Console.WriteLine("Decorated components:");
+client.ClientCode(decoratorB2);

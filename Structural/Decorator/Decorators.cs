@@ -1,50 +1,32 @@
-﻿
-namespace Decorator
+﻿namespace Decorator;
+
+abstract class Decorator(IComponent component) : IComponent
 {
-    abstract class Decorator : IComponent
+    protected IComponent _component = component;
+
+    public void SetComponent(IComponent component)
     {
-        protected IComponent _component;
-
-        public Decorator(IComponent component)
-        {
-            _component = component;
-        }
-
-        public void SetComponent(IComponent component)
-        {
-            _component = component;
-        }
-
-        public virtual string Operation()
-        {
-            if (_component == null)
-            {
-                return string.Empty;
-            }
-            return _component.Operation();
-        }
+        _component = component;
     }
 
-    class ConcreteDecoratorA : Decorator
+    public virtual string Operation()
     {
-        public ConcreteDecoratorA(IComponent component) :
-            base(component) {}
-
-        public override string Operation()
-        {
-            return $"ConcretetDecoratorA({base.Operation()})";
-        }
-    }
-
-    class ConcreteDecoratorB : Decorator
-    {
-        public ConcreteDecoratorB(IComponent component) :
-            base(component) {}
-
-        public override string Operation()
-        {
-            return $"ConcretetDecoratorB({base.Operation()})";
-        }
+        return _component.Operation();
     }
 }
 
+class ConcreteDecoratorA(IComponent component) : Decorator(component)
+{
+    public override string Operation()
+    {
+        return $"ConcretetDecoratorA({base.Operation()})";
+    }
+}
+
+class ConcreteDecoratorB(IComponent component) : Decorator(component)
+{
+    public override string Operation()
+    {
+        return $"ConcretetDecoratorB({base.Operation()})";
+    }
+}
