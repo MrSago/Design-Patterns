@@ -1,14 +1,11 @@
-﻿
-using System;
+﻿using System;
 
-namespace Composite
+namespace Composite;
+
+class Client
 {
-    class Client
+    public void ClientCode(Component leaf)
     {
-        public void ClientCode(Component leaf)
-        {
-            Console.WriteLine($"RESULT: {leaf.Operation()}\n");
-        }
+        Console.WriteLine($"RESULT: {leaf.Operation()}\n");
     }
 }
-
