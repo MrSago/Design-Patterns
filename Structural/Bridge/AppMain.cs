@@ -1,30 +1,22 @@
-﻿
-using System;
+﻿using System;
+using Bridge;
 
-namespace Bridge
-{
-    static class AppMain
-    {
-        static void Main()
-        {
-            Client client = new();
-            Abstraction abstraction;
-            ExtendedAbstraction extendedAbstraction;
+Client client = new();
+Abstraction abstraction;
+ExtendedAbstraction extendedAbstraction;
 
-            abstraction = new(new ConcreteImplementationA());
-            client.ClientCode(abstraction);
+abstraction = new(new ConcreteImplementationA());
+client.ClientCode(abstraction);
+Console.WriteLine("-----------------------------------------");
 
-            abstraction = new(new ConcreteImplementationB());
-            client.ClientCode(abstraction);
+abstraction = new(new ConcreteImplementationB());
+client.ClientCode(abstraction);
+Console.WriteLine("-----------------------------------------");
 
-            extendedAbstraction = new(new ConcreteImplementationA());
-            client.ClientCode(extendedAbstraction);
+extendedAbstraction = new(new ConcreteImplementationA());
+client.ClientCode(extendedAbstraction);
+Console.WriteLine("-----------------------------------------");
 
-            extendedAbstraction = new(new ConcreteImplementationB());
-            client.ClientCode(extendedAbstraction);
-
-            _ = Console.ReadKey(true);
-        }
-    }
-}
-
+extendedAbstraction = new(new ConcreteImplementationB());
+client.ClientCode(extendedAbstraction);
+Console.WriteLine("-----------------------------------------");

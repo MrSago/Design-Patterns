@@ -1,14 +1,11 @@
-﻿
-using System;
+﻿using System;
 
-namespace Bridge
+namespace Bridge;
+
+class Client
 {
-    class Client
+    public void ClientCode(Abstraction abstraction)
     {
-        public void ClientCode(Abstraction abstraction)
-        {
-            Console.WriteLine(abstraction.Operation());
-        }
+        Console.WriteLine(abstraction.Operation());
     }
 }
-
