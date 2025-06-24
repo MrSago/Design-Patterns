@@ -8,11 +8,11 @@ namespace Visitor
     {
         static void Main()
         {
-            List<IComponent> components = new()
-            {
+            List<IComponent> components =
+            [
                 new ConcreteComponentA(),
                 new ConcreteComponentB()
-            };
+            ];
 
             Console.WriteLine("The client code works with all visitors via the base Visitor interface:");
             ConcreteVisitor1 visitor1 = new();

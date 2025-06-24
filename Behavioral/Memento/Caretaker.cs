@@ -5,15 +5,10 @@ using System.Linq;
 
 namespace Memento
 {
-    class Caretaker
+    class Caretaker(Originator originator)
     {
-        private readonly List<IMemento> _mementos = new();
-        private readonly Originator _originator = null;
-
-        public Caretaker(Originator originator)
-        {
-            _originator = originator;
-        }
+        private readonly List<IMemento> _mementos = [];
+        private readonly Originator _originator = originator;
 
         public void Backup()
         {

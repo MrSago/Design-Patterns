@@ -7,7 +7,7 @@ namespace Flyweight
 {
     class FlyweightFactory
     {
-        private readonly List<Tuple<Flyweight, string>> _flyweights = new();
+        private readonly List<Tuple<Flyweight, string>> _flyweights = [];
 
         public FlyweightFactory(params Car[] args)
         {
@@ -21,13 +21,9 @@ namespace Flyweight
             );
         }
 
-        private string GetKey(Car key)
+        private static string GetKey(Car key)
         {
-            List<string> elements = new();
-
-            elements.Add(key.Model);
-            elements.Add(key.Color);
-            elements.Add(key.Company);
+            List<string> elements = [key.Model, key.Color, key.Company];
 
             if (key.Owner != null && key.Number != null)
             {

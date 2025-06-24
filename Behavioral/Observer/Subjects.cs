@@ -17,7 +17,7 @@ namespace Observer
         private int _state = 0;
         public int State { get => _state; set => _state = value; }
 
-        private readonly List<IObserver> _observers = new();
+        private readonly List<IObserver> _observers = [];
 
         public void Attach(IObserver observer)
         {

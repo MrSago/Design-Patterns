@@ -21,7 +21,7 @@ namespace Memento
             Console.WriteLine($"Originator: and my state has changed to {_state}");
         }
 
-        private string GenerateRandomString(int length = 10)
+        private static string GenerateRandomString(int length = 10)
         {
             string allowedSymbols = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
             string result = string.Empty;

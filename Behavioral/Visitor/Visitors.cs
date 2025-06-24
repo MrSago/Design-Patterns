@@ -13,12 +13,12 @@ namespace Visitor
     {
         public void VisitConcreteComponentA(ConcreteComponentA element)
         {
-            Console.WriteLine($"{element.ExclusiveMethodOfConcreteComponentA()} + {GetType().Name}");
+            Console.WriteLine($"{ConcreteComponentA.ExclusiveMethodOfConcreteComponentA()} + {GetType().Name}");
         }
 
         public void VisitConcreteComponentB(ConcreteComponentB element)
         {
-            Console.WriteLine($"{element.SpecialMethodOfConcreteComponentB()} + {GetType().Name}");
+            Console.WriteLine($"{ConcreteComponentB.SpecialMethodOfConcreteComponentB()} + {GetType().Name}");
         }
     }
 
@@ -26,12 +26,12 @@ namespace Visitor
     {
         public void VisitConcreteComponentA(ConcreteComponentA element)
         {
-            Console.WriteLine($"{element.ExclusiveMethodOfConcreteComponentA()} + {GetType().Name}");
+            Console.WriteLine($"{ConcreteComponentA.ExclusiveMethodOfConcreteComponentA()} + {GetType().Name}");
         }
 
         public void VisitConcreteComponentB(ConcreteComponentB element)
         {
-            Console.WriteLine($"{element.SpecialMethodOfConcreteComponentB()} + {GetType().Name}");
+            Console.WriteLine($"{ConcreteComponentB.SpecialMethodOfConcreteComponentB()} + {GetType().Name}");
         }
     }
 }

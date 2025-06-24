@@ -4,14 +4,9 @@ using Newtonsoft.Json;
 
 namespace Flyweight
 {
-    class Flyweight
+    class Flyweight(Car car)
     {
-        private readonly Car _sharedState;
-
-        public Flyweight(Car car)
-        {
-            _sharedState = car;
-        }
+        private readonly Car _sharedState = car;
 
         public void Operation(Car uniqueState)
         {

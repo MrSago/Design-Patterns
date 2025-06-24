@@ -16,17 +16,17 @@ namespace Template_Method
             Hook2();
         }
 
-        protected void BaseOperation1()
+        protected static void BaseOperation1()
         {
             Console.WriteLine("AbstractClass says: I am doing the bulk of the work");
         }
 
-        protected void BaseOperation2()
+        protected static void BaseOperation2()
         {
             Console.WriteLine("AbstractClass says: But I let subclasses override some operations");
         }
 
-        protected void BaseOperation3()
+        protected static void BaseOperation3()
         {
             Console.WriteLine("AbstractClass says: But I am doing the bulk of the work anyway");
         }

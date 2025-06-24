@@ -40,13 +40,13 @@ namespace Proxy
             }
         }
 
-        private bool CheckAccess()
+        private static bool CheckAccess()
         {
             Console.WriteLine("Proxy: Checking access prior to send a real request.");
             return true;
         }
 
-        private void LogAccess()
+        private static void LogAccess()
         {
             Console.WriteLine("Proxy: Logging the time of request.");
         }

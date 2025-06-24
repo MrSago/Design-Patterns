@@ -6,7 +6,7 @@ namespace Iterator
 {
     class WordsCollection : IteratorAggregate
     {
-        private readonly List<string> _collection = new();
+        private readonly List<string> _collection = [];
         private bool _direction = false;
 
         public void ReverseDirection()

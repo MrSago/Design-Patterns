@@ -11,13 +11,13 @@ namespace Proxy
 
             RealSubject realSubject = new();
             Console.WriteLine("Client: Executing the client code with a real subject:");
-            client.ClientCode(realSubject);
+            Client.ClientCode(realSubject);
 
             Console.Write('\n');
 
             Console.WriteLine("Client: Executing the same client code with a proxy:");
             Proxy proxy = new(realSubject);
-            client.ClientCode(proxy);
+            Client.ClientCode(proxy);
 
             _ = Console.ReadKey(true);
         }

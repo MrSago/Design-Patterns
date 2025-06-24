@@ -3,14 +3,9 @@ using System;
 
 namespace Mediator
 {
-    abstract class BaseComponent
+    abstract class BaseComponent(IMediator mediator = null)
     {
-        public IMediator _mediator;
-        
-        public BaseComponent(IMediator mediator = null)
-        {
-            _mediator = mediator;
-        }
+        public IMediator _mediator = mediator;
 
         public void SetMediator(IMediator mediator)
         {

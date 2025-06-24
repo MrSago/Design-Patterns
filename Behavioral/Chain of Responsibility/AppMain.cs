@@ -16,11 +16,11 @@ namespace Chain_of_Responsibility
             monkey.SetNext(squirrel).SetNext(dog);
 
             Console.WriteLine("Chain: Monkey > Squirrel > Dog\n");
-            client.ClientCode(monkey);
+            Client.ClientCode(monkey);
             Console.WriteLine();
 
             Console.WriteLine("Subchain: Squirrel > Dog\n");
-            client.ClientCode(squirrel);
+            Client.ClientCode(squirrel);
 
             _ = Console.ReadKey(true);
         }

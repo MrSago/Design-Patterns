@@ -13,7 +13,7 @@ namespace Visitor
             visitor.VisitConcreteComponentA(this);
         }
 
-        public string ExclusiveMethodOfConcreteComponentA()
+        public static string ExclusiveMethodOfConcreteComponentA()
         {
             return "A";
         }
@@ -26,7 +26,7 @@ namespace Visitor
             visitor.VisitConcreteComponentB(this);
         }
 
-        public string SpecialMethodOfConcreteComponentB()
+        public static string SpecialMethodOfConcreteComponentB()
         {
             return "B";
         }

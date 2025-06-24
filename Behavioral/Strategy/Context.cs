@@ -4,14 +4,9 @@ using System.Collections.Generic;
 
 namespace Strategy
 {
-    class Context
+    class Context(IStrategy strategy = null)
     {
-        private IStrategy _strategy;
-
-        public Context(IStrategy strategy = null)
-        {
-            _strategy = strategy;
-        }
+        private IStrategy _strategy = strategy;
 
         public void SetStrategy(IStrategy strategy)
         {

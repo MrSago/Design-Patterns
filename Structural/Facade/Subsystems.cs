@@ -1,30 +1,27 @@
-﻿
-namespace Facade
+﻿namespace Facade;
+
+class Subsystem1
 {
-    class Subsystem1
+    public string Operation1()
     {
-        public string Operation1()
-        {
-            return "Subsystem1: Prepare!";
-        }
-        
-        public string Operation2()
-        {
-            return "Subsystem1: Go!";
-        }
+        return "Subsystem1: Prepare!";
     }
 
-    class Subsystem2
+    public string Operation2()
     {
-        public string Operation1()
-        {
-            return "Subsystem2: Ready!";
-        }
-
-        public string Operation2()
-        {
-            return "Subsystem2: Move!";
-        }
+        return "Subsystem1: Go!";
     }
 }
 
+class Subsystem2
+{
+    public string Operation1()
+    {
+        return "Subsystem2: Ready!";
+    }
+
+    public string Operation2()
+    {
+        return "Subsystem2: Move!";
+    }
+}

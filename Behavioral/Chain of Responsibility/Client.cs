@@ -6,7 +6,7 @@ namespace Chain_of_Responsibility
 {
     class Client
     {
-        public void ClientCode(AbstractHandler handler)
+        public static void ClientCode(AbstractHandler handler)
         {
             foreach (var food in new List<string> { "Nut", "Banana", "Cup of coffee" })
             {

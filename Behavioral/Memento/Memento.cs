@@ -10,16 +10,10 @@ namespace Memento
         DateTime GetDate();
     }
 
-    class ConcreteMemento : IMemento
+    class ConcreteMemento(string state) : IMemento
     {
-        private readonly string _state;
-        private readonly DateTime _date;
-
-        public ConcreteMemento(string state)
-        {
-            _state = state;
-            _date = DateTime.Now;
-        }
+        private readonly string _state = state;
+        private readonly DateTime _date = DateTime.Now;
 
         public string GetState()
         {
